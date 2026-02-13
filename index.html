@@ -2,14 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Сайт-портфолио студента Высшей Школы Экономики">
     <meta name="keywords" content="ВШЭ, студент, программирование, портфолио">
     <meta name="author" content="Студент ВШЭ">
-    
     <title>Я - студент ВШЭ | Главная</title>
-    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -56,7 +53,6 @@
 </head>
 <body>
     <div class="wrapper">
-        
         <header>
             <h1>Я — студент ВШЭ</h1>
             <p>Добро пожаловать на мой <span class="highlight">персональный сайт</span>. Здесь я рассказываю о своей студенческой жизни.</p>
@@ -66,9 +62,7 @@
             <h3>Навигация по сайту:</h3>
             <a href="index.html">Главная</a> |
             <a href="contact.html">Обратная связь</a> |
-            <a href="https://www.hse.ru" target="_blank" rel="noopener noreferrer">Сайт ВШЭ</a>
-            <br>
-            <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+            <a href="https://www.hse.ru" target="_blank">Сайт ВШЭ</a>
         </nav>
 
         <main>
@@ -80,7 +74,7 @@
                 <br>Каждый день я открываю для себя что-то новое.
                 <hr>
                 </p>
-                <blockquote cite="https://www.hse.ru">
+                <blockquote>
                     "ВШЭ входит в топ-100 мировых университетов по нескольким направлениям."
                 </blockquote>
             </section>
@@ -89,7 +83,7 @@
                 <h3>Моя учебная группа</h3>
                 <figure>
                     <img src="https://picsum.photos/600/300?grayscale" alt="Студенты ВШЭ за работой" width="600" height="300">
-                    <figcaption>Рис. 1 - Студенты ВШЭ за обсуждением проекта (иллюстративное фото).</figcaption>
+                    <figcaption>Рис. 1 - Студенты ВШЭ за обсуждением проекта</figcaption>
                 </figure>
 
                 <p>В нашей группе учатся талантливые ребята. Мы изучаем следующие дисциплины:</p>
@@ -116,8 +110,7 @@
                 </dl>
 
                 <div class="box-model-demo">
-                    Это пример блочной модели (div). Здесь <span style="color:red;">строчный span</span> внутри блока.
-                    <br>padding: 20px, border: 5px, margin: 20px.
+                    Это пример блочной модели. Здесь <span style="color:red;">строчный текст</span> внутри блока.
                 </div>
 
                 <h4>Успеваемость за семестр</h4>
@@ -164,11 +157,6 @@
                     Email: abitur@hse.ru</p>
                 </details>
                 <p>Количество студентов: <data value="50000">более 50 000</data>.</p>
-                <dialog id="infoDialog" style="border:1px solid black; padding:10px;">
-                    <p>Это пример диалогового окна.</p>
-                    <button onclick="document.getElementById('infoDialog').close();">Закрыть</button>
-                </dialog>
-                <button onclick="document.getElementById('infoDialog').showModal();">Открыть диалог</button>
             </aside>
         </main>
 
@@ -184,20 +172,9 @@
     
     <script>
         console.log("Добро пожаловать на сайт студента ВШЭ!");
-        document.addEventListener('DOMContentLoaded', function() {
-        });
     </script>
     <noscript>
-        <p style="color:red;">Ваш браузер не поддерживает JavaScript или он отключен.</p>
+        <p>Ваш браузер не поддерживает JavaScript или он отключен.</p>
     </noscript>
-    
-    <embed src="https://www.hse.ru/" width="0" height="0" style="display:none;">
-    <object data="https://www.hse.ru/" width="0" height="0" style="display:none;"></object>
-    
-    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000; display:none;"></canvas>
-    
-    <svg width="100" height="50" style="display:block; margin:10px auto;">
-        <circle cx="50" cy="25" r="20" stroke="#0f4c81" stroke-width="2" fill="white" />
-    </svg>
 </body>
 </html>
