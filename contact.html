@@ -6,21 +6,113 @@
     <meta name="description" content="Форма обратной связи для связи со студентом ВШЭ">
     <title>Я - студент ВШЭ | Обратная связь</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; color: #333; }
-        .wrapper { max-width: 900px; margin: 20px auto; padding: 20px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        header, nav, main, section, footer, form, fieldset { margin: 10px 0; padding: 15px; border-radius: 8px; }
-        header { background-color: #e1ecf4; border-left: 5px solid #0f4c81; }
-        nav { background-color: #d9e6f2; }
-        nav a { margin-right: 15px; text-decoration: none; color: #0f4c81; font-weight: bold; }
-        main { background-color: #ffffff; border: 1px solid #ddd; }
-        footer { background-color: #2d3e50; color: white; text-align: center; }
-        form { background-color: #f9f9f9; border: 2px solid #0f4c81; }
-        label { display: inline-block; width: 150px; font-weight: bold; }
-        input, textarea, select, button { padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; }
-        button { background-color: #0f4c81; color: white; cursor: pointer; border: none; padding: 10px 20px; }
-        button:hover { background-color: #0a3a62; }
-        fieldset { border: 1px solid #0f4c81; }
-        .radio-group label { display: inline; width: auto; margin-right: 15px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f5f5f5; 
+            color: #333; 
+            line-height: 1.6;
+        }
+        .wrapper { 
+            max-width: 900px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background: white; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
+        header, nav, main, section, footer, form, fieldset { 
+            margin: 10px 0; 
+            padding: 15px; 
+            border-radius: 8px; 
+        }
+        header { 
+            background-color: #e1ecf4; 
+            border-left: 5px solid #0f4c81; 
+        }
+        nav { 
+            background-color: #d9e6f2; 
+        }
+        nav a { 
+            margin-right: 15px; 
+            text-decoration: none; 
+            color: #0f4c81; 
+            font-weight: bold; 
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main { 
+            background-color: #ffffff; 
+            border: 1px solid #ddd; 
+        }
+        footer { 
+            background-color: #2d3e50; 
+            color: white; 
+            text-align: center; 
+        }
+        footer a {
+            color: #fff;
+        }
+        form { 
+            background-color: #f9f9f9; 
+            border: 2px solid #0f4c81; 
+        }
+        label { 
+            display: inline-block; 
+            width: 150px; 
+            font-weight: bold; 
+            margin-bottom: 5px;
+        }
+        input, textarea, select, button { 
+            padding: 8px; 
+            margin: 5px 0 15px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        button { 
+            background-color: #0f4c81; 
+            color: white; 
+            cursor: pointer; 
+            border: none; 
+            padding: 10px 20px; 
+            width: auto;
+            font-size: 16px;
+        }
+        button:hover { 
+            background-color: #0a3a62; 
+        }
+        button[type="reset"] {
+            background-color: #6c757d;
+        }
+        button[type="reset"]:hover {
+            background-color: #545b62;
+        }
+        fieldset { 
+            border: 1px solid #0f4c81; 
+            margin-bottom: 15px;
+        }
+        legend {
+            font-weight: bold;
+            color: #0f4c81;
+        }
+        .radio-group label { 
+            display: inline; 
+            width: auto; 
+            margin-right: 15px; 
+        }
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +133,7 @@
             <section>
                 <h3>Заполните форму, и я обязательно отвечу вам</h3>
                 
-                <form action="/send-message" method="post" enctype="multipart/form-data">
+                <form action="#" method="post">
                     <div>
                         <label for="name">Ваше имя:</label>
                         <input type="text" id="name" name="name" placeholder="Введите имя" required>
@@ -54,17 +146,12 @@
                     
                     <div>
                         <label for="age">Возраст:</label>
-                        <input type="number" id="age" name="age" min="16" max="99" step="1" value="18">
+                        <input type="number" id="age" name="age" min="16" max="99" value="18">
                     </div>
                     
                     <div>
                         <label for="phone">Телефон:</label>
                         <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
-                    </div>
-                    
-                    <div>
-                        <label for="meeting_date">Удобная дата связи:</label>
-                        <input type="date" id="meeting_date" name="meeting_date">
                     </div>
                     
                     <div>
@@ -97,26 +184,27 @@
                     
                     <fieldset>
                         <legend>Какие направления вам интересны?</legend>
-                        <input type="checkbox" id="interest1" name="interests" value="programming">
-                        <label for="interest1">Программирование</label><br>
-                        <input type="checkbox" id="interest2" name="interests" value="design">
-                        <label for="interest2">Дизайн</label><br>
-                        <input type="checkbox" id="interest3" name="interests" value="math">
-                        <label for="interest3">Математика</label>
+                        <div>
+                            <input type="checkbox" id="interest1" name="interests" value="programming">
+                            <label for="interest1">Программирование</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="interest2" name="interests" value="design">
+                            <label for="interest2">Дизайн</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="interest3" name="interests" value="math">
+                            <label for="interest3">Математика</label>
+                        </div>
                     </fieldset>
                     
                     <div>
-                        <label for="message">Сообщение:</label><br>
-                        <textarea id="message" name="message" rows="6" cols="50" placeholder="Ваше сообщение..." required></textarea>
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Ваше сообщение..." required></textarea>
                     </div>
                     
                     <div>
-                        <label for="file_attach">Прикрепить файл:</label>
-                        <input type="file" id="file_attach" name="attachment">
-                    </div>
-                    
-                    <div>
-                        <label for="city">Ваш город (с подсказками):</label>
+                        <label for="city">Ваш город:</label>
                         <input list="cities" id="city" name="city" placeholder="Начните вводить...">
                         <datalist id="cities">
                             <option value="Москва">
@@ -126,51 +214,19 @@
                         </datalist>
                     </div>
                     
-                    <div>
-                        <label for="result">Результат проверки:</label>
-                        <output id="result" name="result">готово к отправке</output>
-                    </div>
-                    
-                    <div>
+                    <div class="form-actions">
                         <button type="submit">Отправить сообщение</button>
                         <button type="reset">Сбросить форму</button>
                     </div>
                 </form>
-                
-                <h4>Статистика заполнения формы:</h4>
-                <p>Заполнено на <progress value="70" max="100">70%</progress></p>
-                <p>Уровень сложности: <meter value="0.6" min="0" max="1">60%</meter></p>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Я - студент ВШЭ. Связь: <a href="mailto:student@hse.ru">student@hse.ru</a></p>
+            <p>&copy; 2025 Я - студент ВШЭ. Связь: <a href="mailto:student@hse.ru">student@hse.ru</a></p>
             <address>Москва, ул. Мясницкая, д. 20</address>
             <small>Форма работает в демонстрационном режиме.</small>
         </footer>
     </div>
-    
-    <iframe src="https://www.hse.ru/maps/" width="100%" height="200" style="border:1px solid #0f4c81;" title="Карта кампуса ВШЭ"></iframe>
-    
-    <audio controls style="width:100%; margin-top:10px;">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-    
-    <video width="320" height="240" controls style="margin-top:10px;">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English">
-    </video>
-    
-    <img src="https://picsum.photos/300/200?random=1" usemap="#imagemap" alt="Пример карты">
-    <map name="imagemap">
-        <area shape="rect" coords="0,0,100,100" href="https://www.hse.ru" alt="ВШЭ" target="_blank">
-        <area shape="circle" coords="150,100,30" href="https://t.me/hse_official" alt="Telegram ВШЭ" target="_blank">
-    </map>
-    
-    <picture>
-        <source media="(min-width: 650px)" srcset="https://picsum.photos/400/200">
-        <source media="(min-width: 465px)" srcset="https://picsum.photos/300/150">
-        <img src="https://picsum.photos/200/100" alt="Адаптивное изображение">
-    </picture>
 </body>
 </html>
