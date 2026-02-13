@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Сайт-портфолио студента Высшей Школы Экономики">
+    <meta name="keywords" content="ВШЭ, студент, программирование, портфолио">
+    <meta name="author" content="Студент ВШЭ">
+    
+    <title>Я - студент ВШЭ | Главная</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header, nav, main, article, section, aside, footer, div, figure, details {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        header { background-color: #e1ecf4; border-left: 5px solid #0f4c81; }
+        nav { background-color: #d9e6f2; }
+        nav a { margin-right: 15px; text-decoration: none; color: #0f4c81; font-weight: bold; }
+        main { background-color: #ffffff; border: 1px solid #ddd; }
+        article { background-color: #f9f9f9; border: 1px dashed #0f4c81; }
+        section { background-color: #fef9e7; border: 1px solid #f0c45a; }
+        aside { background-color: #e8f0fe; border-left: 5px solid #8a9bb2; }
+        footer { background-color: #2d3e50; color: white; text-align: center; }
+        .highlight { background-color: #ffecb3; padding: 2px 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #0f4c81; color: white; }
+        .box-model-demo {
+            background: #e1f5fe;
+            padding: 20px;
+            border: 5px solid #0288d1;
+            margin: 20px 0;
+            width: 300px;
+        }
+        img { max-width: 100%; height: auto; border-radius: 5px; }
+        hr { border: 1px solid #0f4c81; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <header>
+            <h1>Я — студент ВШЭ</h1>
+            <p>Добро пожаловать на мой <span class="highlight">персональный сайт</span>. Здесь я рассказываю о своей студенческой жизни.</p>
+        </header>
+
+        <nav>
+            <h3>Навигация по сайту:</h3>
+            <a href="index.html">Главная</a> |
+            <a href="contact.html">Обратная связь</a> |
+            <a href="https://www.hse.ru" target="_blank" rel="noopener noreferrer">Сайт ВШЭ</a>
+            <br>
+            <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+        </nav>
+
+        <main>
+            <h2>Мой путь в Вышке</h2>
+            
+            <section>
+                <h3>Почему ВШЭ?</h3>
+                <p><strong>Высшая школа экономики</strong> — это место, где я могу развивать свои навыки в <em>программировании</em> и анализе данных. 
+                <br>Каждый день я открываю для себя что-то новое.
+                <hr>
+                </p>
+                <blockquote cite="https://www.hse.ru">
+                    "ВШЭ входит в топ-100 мировых университетов по нескольким направлениям."
+                </blockquote>
+            </section>
+
+            <article>
+                <h3>Моя учебная группа</h3>
+                <figure>
+                    <img src="https://picsum.photos/600/300?grayscale" alt="Студенты ВШЭ за работой" width="600" height="300">
+                    <figcaption>Рис. 1 - Студенты ВШЭ за обсуждением проекта (иллюстративное фото).</figcaption>
+                </figure>
+
+                <p>В нашей группе учатся талантливые ребята. Мы изучаем следующие дисциплины:</p>
+                <ul>
+                    <li>Структуры и алгоритмы обработки данных</li>
+                    <li>Веб-разработка (HTML, CSS, JavaScript)</li>
+                    <li>Базы данных</li>
+                    <li>Математический анализ</li>
+                </ul>
+
+                <p>Расписание звонков:</p>
+                <ol>
+                    <li>1 пара: 9:00 - 10:30</li>
+                    <li>2 пара: 10:40 - 12:10</li>
+                    <li>3 пара: 12:40 - 14:10</li>
+                </ol>
+
+                <h4>Термины:</h4>
+                <dl>
+                    <dt>ВШЭ</dt>
+                    <dd>Национальный исследовательский университет "Высшая школа экономики".</dd>
+                    <dt>Кредит (ECTS)</dt>
+                    <dd>Единица измерения трудоемкости учебной нагрузки.</dd>
+                </dl>
+
+                <div class="box-model-demo">
+                    Это пример блочной модели (div). Здесь <span style="color:red;">строчный span</span> внутри блока.
+                    <br>padding: 20px, border: 5px, margin: 20px.
+                </div>
+
+                <h4>Успеваемость за семестр</h4>
+                <table>
+                    <caption>Таблица 1. Оценки студента</caption>
+                    <colgroup>
+                        <col style="background-color:#f2f2f2;">
+                        <col span="2" style="background-color:#e6f7ff;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Предмет</th>
+                            <th>Оценка</th>
+                            <th>Преподаватель</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Веб-разработка</td>
+                            <td>Отлично</td>
+                            <td>Доц. Иванов</td>
+                        </tr>
+                        <tr>
+                            <td>Алгоритмы</td>
+                            <td>Хорошо</td>
+                            <td>Проф. Петров</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Итог: средний балл 4.5</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </article>
+
+            <aside>
+                <h4>Интересный факт</h4>
+                <p><mark>ВШЭ</mark> была основана в 1992 году и сейчас имеет несколько кампусов в России.</p>
+                <p>Поступление в этом году: <time datetime="2024-09-01">1 сентября 2024</time>.</p>
+                <details>
+                    <summary>Контакты приемной комиссии</summary>
+                    <p>Телефон: +7 (495) 123-45-67<br>
+                    Email: abitur@hse.ru</p>
+                </details>
+                <p>Количество студентов: <data value="50000">более 50 000</data>.</p>
+                <dialog id="infoDialog" style="border:1px solid black; padding:10px;">
+                    <p>Это пример диалогового окна.</p>
+                    <button onclick="document.getElementById('infoDialog').close();">Закрыть</button>
+                </dialog>
+                <button onclick="document.getElementById('infoDialog').showModal();">Открыть диалог</button>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Я - студент ВШЭ. Все права защищены.</p>
+            <address>
+                Связаться со мной: <a href="mailto:student@hse.ru">student@hse.ru</a><br>
+                Москва, ул. Мясницкая, д. 20
+            </address>
+            <small>Сайт создан в учебных целях.</small>
+        </footer>
+    </div>
+    
+    <script>
+        console.log("Добро пожаловать на сайт студента ВШЭ!");
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+    </script>
+    <noscript>
+        <p style="color:red;">Ваш браузер не поддерживает JavaScript или он отключен.</p>
+    </noscript>
+    
+    <embed src="https://www.hse.ru/" width="0" height="0" style="display:none;">
+    <object data="https://www.hse.ru/" width="0" height="0" style="display:none;"></object>
+    
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000; display:none;"></canvas>
+    
+    <svg width="100" height="50" style="display:block; margin:10px auto;">
+        <circle cx="50" cy="25" r="20" stroke="#0f4c81" stroke-width="2" fill="white" />
+    </svg>
+</body>
+</html>
