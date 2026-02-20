@@ -5,127 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Форма обратной связи">
     <title>Я - студент ВШЭ | Обратная связь</title>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f5f5f5; 
-            color: #333; 
-            line-height: 1.6;
+        #contact-form {
+            background: linear-gradient(135deg, #667eea0d, #764ba20d);
         }
-        .wrapper { 
-            max-width: 900px; 
-            margin: 20px auto; 
-            padding: 20px; 
-            background: white; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
         }
-        header, nav, main, section, footer, form, fieldset { 
-            margin: 10px 0; 
-            padding: 15px; 
-            border-radius: 8px; 
-        }
-        header { 
-            background-color: #e1ecf4; 
-            border-left: 5px solid #0f4c81; 
-        }
-        nav { 
-            background-color: #d9e6f2; 
-        }
-        nav a { 
-            margin-right: 15px; 
-            text-decoration: none; 
-            color: #0f4c81; 
-            font-weight: bold; 
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main { 
-            background-color: #ffffff; 
-            border: 1px solid #ddd; 
-        }
-        footer { 
-            background-color: #2d3e50; 
-            color: white; 
-            text-align: center; 
-        }
-        footer a {
-            color: #fff;
-        }
-        form { 
-            background-color: #f9f9f9; 
-            border: 2px solid #0f4c81; 
-        }
-        label { 
-            display: inline-block; 
-            width: 150px; 
-            font-weight: bold; 
-            margin-bottom: 5px;
-        }
-        input, textarea, select, button { 
-            padding: 8px; 
-            margin: 5px 0 15px 0; 
-            border: 1px solid #ccc; 
-            border-radius: 4px;
-            width: 100%;
-            max-width: 300px;
-            box-sizing: border-box;
-        }
-        input[type="radio"], input[type="checkbox"] {
-            width: auto;
-            margin-right: 5px;
-        }
-        button { 
-            background-color: #0f4c81; 
-            color: white; 
-            cursor: pointer; 
-            border: none; 
-            padding: 10px 20px; 
-            width: auto;
-            font-size: 16px;
-        }
-        button:hover { 
-            background-color: #0a3a62; 
-        }
-        button[type="reset"] {
-            background-color: #6c757d;
-        }
-        button[type="reset"]:hover {
-            background-color: #545b62;
-        }
-        fieldset { 
-            border: 1px solid #0f4c81; 
-            margin-bottom: 15px;
-        }
-        legend {
+        
+        .form-group label {
+            display: inline-block;
+            width: 150px;
             font-weight: bold;
-            color: #0f4c81;
+            color: #2d3e50;
         }
-        .radio-group label { 
-            display: inline; 
-            width: auto; 
-            margin-right: 15px; 
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
         }
+        
+        input:required {
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        input:valid {
+            border-left-color: #4ecdc4;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-group label {
+            width: auto;
+            margin-right: 10px;
+        }
+        
         .form-actions {
             display: flex;
-            gap: 10px;
-            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        button[type="reset"] {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        }
+        
+        fieldset {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        legend {
+            font-weight: bold;
+            color: #667eea;
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        optgroup[label="Учёба"] {
+            background: #e3f2fd;
+        }
+        
+        optgroup[label="Личное"] {
+            background: #fce4e4;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .form-group label {
+                display: block;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <header>
+        <header style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
             <h1>Свяжитесь со мной</h1>
             <p>Я всегда рад новым знакомствам и обратной связи.</p>
         </header>
 
-        <nav>
-            <h3>Навигация:</h3>
-            <a href="index.html">Главная</a> |
-            <a href="contact.html">Обратная связь</a>
+        <nav style="background: linear-gradient(135deg, #2C3E50, #3498DB);">
+            <h3 style="color: white; margin: 0;">Навигация:</h3>
+            <div>
+                <a href="index.html">Главная</a> |
+                <a href="contact.html">Обратная связь</a>
+            </div>
         </nav>
 
         <main>
@@ -133,28 +128,28 @@
             <section>
                 <h3>Заполните форму, и я обязательно отвечу вам</h3>
                 
-                <form action="#" method="post">
-                    <div>
+                <form id="contact-form" action="#" method="post">
+                    <div class="form-group">
                         <label for="name">Ваше имя:</label>
                         <input type="text" id="name" name="name" placeholder="Введите имя" required>
                     </div>
                     
-                    <div>
+                    <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="student@example.com" required>
                     </div>
                     
-                    <div>
+                    <div class="form-group">
                         <label for="age">Возраст:</label>
                         <input type="number" id="age" name="age" min="16" max="99" value="18">
                     </div>
                     
-                    <div>
+                    <div class="form-group">
                         <label for="phone">Телефон:</label>
                         <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
                     </div>
                     
-                    <div>
+                    <div class="form-group">
                         <label for="topic">Тема обращения:</label>
                         <select id="topic" name="topic" required>
                             <optgroup label="Учёба">
@@ -182,7 +177,7 @@
                         </div>
                     </fieldset>
                     
-                    <div>
+                    <div class="form-group">
                         <label for="message">Сообщение:</label>
                         <textarea id="message" name="message" rows="6" placeholder="Ваше сообщение..." required></textarea>
                     </div>
