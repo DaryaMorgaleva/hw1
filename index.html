@@ -7,68 +7,76 @@
     <meta name="keywords" content="ВШЭ, студент, программирование, портфолио">
     <meta name="author" content="Студент ВШЭ">
     <title>Я - студент ВШЭ | Главная</title>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+        #feature1 {
+            border-left: 4px solid #ff6b6b;
         }
-        .wrapper {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        
+        #feature2 {
+            border-left: 4px solid #4ecdc4;
         }
-        header, nav, main, article, section, aside, footer, div, figure, details {
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
+        
+        #feature3 {
+            border-left: 4px solid #45b7d1;
         }
-        header { background-color: #e1ecf4; border-left: 5px solid #0f4c81; }
-        nav { background-color: #d9e6f2; }
-        nav a { margin-right: 15px; text-decoration: none; color: #0f4c81; font-weight: bold; }
-        main { background-color: #ffffff; border: 1px solid #ddd; }
-        article { background-color: #f9f9f9; border: 1px dashed #0f4c81; }
-        section { background-color: #fef9e7; border: 1px solid #f0c45a; }
-        aside { background-color: #e8f0fe; border-left: 5px solid #8a9bb2; }
-        footer { background-color: #2d3e50; color: white; text-align: center; }
-        .highlight { background-color: #ffecb3; padding: 2px 5px; }
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        th { background-color: #0f4c81; color: white; }
-        .box-model-demo {
-            background: #e1f5fe;
-            padding: 20px;
-            border: 5px solid #0288d1;
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .header-content p:first-of-type {
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
             margin: 20px 0;
-            width: 300px;
         }
-        img { max-width: 100%; height: auto; border-radius: 5px; }
-        hr { border: 1px solid #0f4c81; }
+        
+        time {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        address a[href^="mailto"] {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        address a[href^="mailto"]:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <h1>Я — студент ВШЭ</h1>
-            <p>Добро пожаловать на мой <span class="highlight">персональный сайт</span>. Здесь я рассказываю о своей студенческой жизни.</p>
+        <header style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
+            <div class="header-content">
+                <h1>Я — студент ВШЭ</h1>
+                <p>Добро пожаловать на мой <span class="highlight">персональный сайт</span>. Здесь я рассказываю о своей студенческой жизни.</p>
+            </div>
         </header>
 
-        <nav>
-            <h3>Навигация по сайту:</h3>
-            <a href="index.html">Главная</a> |
-            <a href="contact.html">Обратная связь</a> |
-            <a href="https://www.hse.ru" target="_blank">Сайт ВШЭ</a>
+        <nav style="background: linear-gradient(135deg, #2C3E50, #3498DB);">
+            <h3 style="color: white; margin: 0;">Навигация по сайту:</h3>
+            <div>
+                <a href="index.html">Главная</a> |
+                <a href="contact.html">Обратная связь</a> |
+                <a href="https://www.hse.ru" target="_blank">Сайт ВШЭ</a>
+            </div>
         </nav>
 
         <main>
             <h2>Мой путь в Вышке</h2>
             
-            <section>
+            <section id="feature1">
                 <h3>Почему ВШЭ?</h3>
                 <p><strong>Высшая школа экономики</strong> — это место, где я могу развивать свои навыки в <em>программировании</em> и анализе данных. 
                 <br>Каждый день я открываю для себя что-то новое.
@@ -79,7 +87,7 @@
                 </blockquote>
             </section>
 
-            <article>
+            <article id="feature2">
                 <h3>Моя учебная группа</h3>
                 <figure>
                     <img src="https://picsum.photos/600/300?grayscale" alt="Студенты ВШЭ за работой" width="600" height="300">
@@ -94,8 +102,8 @@
                     <li>Математический анализ</li>
                 </ul>
 
-                <div class="box-model-demo">
-                    Поступайте в <span style="color:red;">МИЭМ</span> НИУ ВШЭ.
+                <div class="box-model-demo" style="border-color: #FF6B6B;">
+                    Поступайте в <span style="color:#FF6B6B; font-weight:bold;">МИЭМ</span> НИУ ВШЭ.
                 </div>
 
                 <h4>Успеваемость за семестр</h4>
@@ -129,13 +137,13 @@
                 </table>
             </article>
 
-            <aside>
+            <aside id="feature3">
                 <h4>Интересный факт</h4>
-                <p><mark>ВШЭ</mark> была основана в 1992 году и сейчас имеет несколько кампусов в России.</p>
+                <p><mark style="background-color: #FFD700;">ВШЭ</mark> была основана в 1992 году и сейчас имеет несколько кампусов в России.</p>
                 <p>Поступление в этом году: <time datetime="2024-09-01">1 сентября 2026</time>.</p>
                 <details>
                     <summary>Контакты приемной комиссии</summary>
-                    Email: abitur@hse.ru</p>
+                    <p>Email: abitur@hse.ru</p>
                 </details>
                 <p>Количество студентов: <data value="50000">более 50 000</data>.</p>
             </aside>
