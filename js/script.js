@@ -62,7 +62,7 @@ function addMessageToChat(text, isUser = false) {
     });
 }
 
-function handleSendMessage() {
+window.handleSendMessage = function() {
     const input = document.getElementById('chat-input');
     const message = input.value.trim();
     
@@ -75,9 +75,9 @@ function handleSendMessage() {
             addMessageToChat(botResponse, false);
         }, 1000);
     }
-}
+};
 
-async function handleVoiceMessage() {
+window.handleVoiceMessage = async function() {
     try {
         if (!navigator.mediaDevices || !window.MediaRecorder) {
             alert('\u26A0\uFE0F Ваш браузер не поддерживает запись голоса');
@@ -124,7 +124,7 @@ async function handleVoiceMessage() {
         console.error('Ошибка доступа к микрофону:', error);
         alert('\u26A0\uFE0F Не удалось получить доступ к микрофону');
     }
-}
+};
 
 function createChatHTML() {
     return `
@@ -143,9 +143,9 @@ function createChatHTML() {
                 </div>
             </div>
             <div class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Напишите сообщение..." onkeypress="if(event.key==='Enter') handleSendMessage()">
+                <input type="text" id="chat-input" placeholder="Напишите сообщение...">
                 <button onclick="handleSendMessage()" class="send-btn">\uD83D\uDCE4</button>
-                <button id="voice-btn" onclick="handleVoiceMessage()" class="voice-btn">\uD83C\uDFA4</button>
+                <button onclick="handleVoiceMessage()" class="voice-btn">\uD83C\uDFA4</button>
             </div>
         </div>
     `;
@@ -162,8 +162,12 @@ function createMapHTML() {
 }
 
 function initMap() {
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+    
     if (typeof ol === 'undefined') {
         console.error('OpenLayers не загружен');
+        mapElement.innerHTML = '<p style="color: red; padding: 20px;">\u26A0\uFE0F Не удалось загрузить карту</p>';
         return;
     }
     
@@ -204,8 +208,22 @@ function initMap() {
         console.log('Карта успешно инициализирована');
     } catch (error) {
         console.error('Ошибка при создании карты:', error);
-        document.getElementById('map').innerHTML = '<p style="color: red; padding: 20px;">\u26A0\uFE0F Не удалось загрузить карту</p>';
+        mapElement.innerHTML = '<p style="color: red; padding: 20px;">\u26A0\uFE0F Не удалось создать карту</p>';
     }
+}
+
+function initMapFallback() {
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+    
+    mapElement.innerHTML = `
+        <div style="background: #f0f0f0; padding: 40px; text-align: center; border-radius: 10px;">
+            <p style="font-size: 2rem; margin: 0;">📍</p>
+            <p><strong>НИУ ВШЭ, ул. Мясницкая, д. 20</strong></p>
+            <p>Москва, Россия</p>
+            <p style="color: #666; margin-top: 20px;"><small>Карта временно недоступна. Попробуйте позже.</small></p>
+        </div>
+    `;
 }
 
 window.onload = function() {
@@ -368,6 +386,7 @@ window.onload = function() {
             border-radius: 10px;
             overflow: hidden;
             border: 2px solid #667eea;
+            min-height: 400px;
         }
         
         .map-note {
@@ -383,6 +402,7 @@ window.onload = function() {
             
             #map {
                 height: 300px;
+                min-height: 300px;
             }
         }
     `;
@@ -394,21 +414,28 @@ window.onload = function() {
         const mainElement = document.querySelector('main');
         if (mainElement) {
             const form = document.getElementById('contact-form');
-            const mapDiv = document.createElement('div');
-            mapDiv.innerHTML = createMapHTML();
-            form.parentNode.insertBefore(mapDiv.firstChild, form.nextSibling);
-            
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js';
-            script.onload = function() {
+            if (form) {
+                const mapDiv = document.createElement('div');
+                mapDiv.innerHTML = createMapHTML();
+                form.parentNode.insertBefore(mapDiv.firstChild, form.nextSibling);
+                
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.href = 'https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css';
                 document.head.appendChild(link);
                 
-                setTimeout(initMap, 100);
-            };
-            document.head.appendChild(script);
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js';
+                script.onload = function() {
+                    console.log('OpenLayers загружен, инициализация карты...');
+                    setTimeout(initMap, 500);
+                };
+                script.onerror = function() {
+                    console.error('Не удалось загрузить OpenLayers');
+                    initMapFallback();
+                };
+                document.head.appendChild(script);
+            }
         }
     } else {
         console.log('Главная страница, добавляем чат...');
@@ -416,9 +443,16 @@ window.onload = function() {
         const mainElement = document.querySelector('main');
         if (mainElement) {
             const aside = document.querySelector('aside');
-            const chatDiv = document.createElement('div');
-            chatDiv.innerHTML = createChatHTML();
-            aside.parentNode.insertBefore(chatDiv.firstChild, aside.nextSibling);
+            if (aside) {
+                const chatDiv = document.createElement('div');
+                chatDiv.innerHTML = createChatHTML();
+                aside.parentNode.insertBefore(chatDiv.firstChild, aside.nextSibling);
+            } else {
+                const mainContent = document.querySelector('main');
+                const chatDiv = document.createElement('div');
+                chatDiv.innerHTML = createChatHTML();
+                mainContent.appendChild(chatDiv.firstChild);
+            }
         }
     }
 };
