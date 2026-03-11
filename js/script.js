@@ -455,4 +455,52 @@ window.onload = function() {
             }
         }
     }
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            console.log('Принудительный запуск...');
+            if (window.location.pathname.includes('contact.html')) {
+                if (!document.querySelector('.map-container')) {
+                    console.log('Карта не найдена, создаю...');
+                    const form = document.getElementById('contact-form');
+                    if (form) {
+                        const mapDiv = document.createElement('div');
+                        mapDiv.innerHTML = createMapHTML();
+                        form.parentNode.insertBefore(mapDiv.firstChild, form.nextSibling);
+                    }
+                }
+            } else {
+                if (!document.querySelector('.chat-container')) {
+                    console.log('Чат не найден, создаю...');
+                    const aside = document.querySelector('aside');
+                    if (aside) {
+                        const chatDiv = document.createElement('div');
+                        chatDiv.innerHTML = createChatHTML();
+                        aside.parentNode.insertBefore(chatDiv.firstChild, aside.nextSibling);
+                    }
+                }
+            }
+        }, 1000);
+    });
+} else {
+    console.log('Страница уже загружена, запускаю...');
+    if (window.location.pathname.includes('contact.html')) {
+        const form = document.getElementById('contact-form');
+        if (form && !document.querySelector('.map-container')) {
+            const mapDiv = document.createElement('div');
+            mapDiv.innerHTML = createMapHTML();
+            form.parentNode.insertBefore(mapDiv.firstChild, form.nextSibling);
+        }
+    } else {
+        if (!document.querySelector('.chat-container')) {
+            const aside = document.querySelector('aside');
+            if (aside) {
+                const chatDiv = document.createElement('div');
+                chatDiv.innerHTML = createChatHTML();
+                aside.parentNode.insertBefore(chatDiv.firstChild, aside.nextSibling);
+            }
+        }
+    }
+}
+
 };
