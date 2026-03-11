@@ -229,7 +229,7 @@ function initMapFallback() {
 window.onload = function() {
     console.log('Страница загружена, инициализация функций...');
     
-    const isContactPage = window.location.pathname.includes('contact.html');
+    const isContactPage = document.getElementById('contact-form') !== null;
     
     const style = document.createElement('style');
     style.textContent = `
