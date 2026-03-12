@@ -163,5 +163,12 @@
     <noscript>
         <p>Ваш браузер не поддерживает JavaScript или он отключен.</p>
     </noscript>
+    <script>
+        console.log('Test script loaded');
+        window.onload = function() {
+            console.log('Test onload fired');
+            alert('Страница загружена! Чат и карта должны работать.');
+        };
+    </script>
 </body>
 </html>
