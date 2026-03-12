@@ -56,7 +56,7 @@ function addMessageToChat(text, isUser = false) {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-function handleSendMessage() {
+window.handleSendMessage = function() {
     const input = document.getElementById('chat-input');
     if (!input) return;
     
@@ -69,9 +69,9 @@ function handleSendMessage() {
     setTimeout(() => {
         addMessageToChat(getBotResponse(message), false);
     }, 800);
-}
+};
 
-async function handleVoiceMessage() {
+window.handleVoiceMessage = async function() {
     const voiceBtn = document.getElementById("voice-btn");
     if (!voiceBtn) return;
     
@@ -117,7 +117,7 @@ async function handleVoiceMessage() {
         voiceBtn.textContent = "🎤";
         voiceBtn.disabled = false;
     }
-}
+};
 
 function createChatHTML() {
     return `
@@ -164,7 +164,6 @@ function initMap() {
         return;
     }
     
-    // Координаты МИЭМ ВШЭ (ул. Таллинская, 34)
     const coords = [37.3976, 55.8165];
     
     const map = new ol.Map({
@@ -228,22 +227,7 @@ window.onload = function() {
             const mapDiv = document.createElement("div");
             mapDiv.innerHTML = createMapHTML();
             form.after(mapDiv.firstChild);
-            
-            if (!document.querySelector('link[href*="ol.css"]')) {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.href = "https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css";
-                document.head.appendChild(link);
-            }
-            
-            if (typeof ol === "undefined") {
-                const script = document.createElement("script");
-                script.src = "https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js";
-                script.onload = initMap;
-                document.head.appendChild(script);
-            } else {
-                initMap();
-            }
+            setTimeout(initMap, 500);
         }
     } else {
         const aside = document.querySelector("aside");
@@ -254,6 +238,3 @@ window.onload = function() {
         }
     }
 };
-
-window.handleSendMessage = handleSendMessage;
-window.handleVoiceMessage = handleVoiceMessage;
