@@ -131,7 +131,7 @@ function createChatHTML() {
                 <div class="message-content">
                     <span class="message-sender">Автор</span>
                     <span class="message-time">${new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute:'2-digit'})}</span>
-                    <p>Привет! Я автор этого сайта. Задавай вопросы 😊</p>
+                    <p>Можно что-нибудь написать</p>
                 </div>
             </div>
         </div>
@@ -160,7 +160,7 @@ function initMap() {
     if (!mapElement) return;
     
     if (typeof ol === "undefined") {
-        mapElement.innerHTML = "Не удалось загрузить карту";
+        mapElement.innerHTML = '<div style="background:#eee; padding:40px; text-align:center;">Карта: МИЭМ ВШЭ, ул. Таллинская, 34</div>';
         return;
     }
     
@@ -187,28 +187,13 @@ function initMap() {
         })
     });
     
-    const textStyle = new ol.style.Style({
-        text: new ol.style.Text({
-            text: 'МИЭМ ВШЭ',
-            font: 'bold 14px Arial',
-            fill: new ol.style.Fill({color: '#2d3e50'}),
-            stroke: new ol.style.Stroke({color: '#fff', width: 3}),
-            offsetY: -20
-        })
-    });
-    
     const marker = new ol.Feature({
         geometry: new ol.geom.Point(ol.proj.fromLonLat(coords))
     });
     marker.setStyle(markerStyle);
     
-    const textFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat(coords))
-    });
-    textFeature.setStyle(textStyle);
-    
     const vectorSource = new ol.source.Vector({
-        features: [marker, textFeature]
+        features: [marker]
     });
     
     const vectorLayer = new ol.layer.Vector({
@@ -220,16 +205,25 @@ function initMap() {
 
 window.onload = function() {
     const isContactPage = document.querySelector("#contact-form");
+    const isIndexPage = document.querySelector("#feature1");
     
     if (isContactPage) {
         const form = document.getElementById("contact-form");
         if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                alert('Демо-режим: данные не сохраняются');
+                form.reset();
+            };
+            
             const mapDiv = document.createElement("div");
             mapDiv.innerHTML = createMapHTML();
             form.after(mapDiv.firstChild);
             setTimeout(initMap, 500);
         }
-    } else {
+    }
+    
+    if (isIndexPage) {
         const aside = document.querySelector("aside");
         if (aside) {
             const chatDiv = document.createElement("div");
